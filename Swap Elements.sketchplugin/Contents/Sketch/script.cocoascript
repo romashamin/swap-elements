@@ -1,0 +1,39 @@
+var swapElementsTopLeft = function(context) {
+	var selection = context.selection;
+
+	if ([selection count] == 2) {
+		var layer = [selection objectAtIndex:0],
+			layer2 = [selection objectAtIndex:1];
+			
+			var x1 = [[layer frame] x];
+			var y1 = [[layer frame] y];
+			var x2 = [[layer2 frame] x];
+			var y2 = [[layer2 frame] y];
+			
+			[[layer frame] addX:x2-x1];
+			[[layer frame] addY:y2-y1];
+			[[layer2 frame] addX:x1-x2];
+			[[layer2 frame] addY:y1-y2];			
+	}
+
+}
+
+var swapElementsMidPoint = function(context) {
+	var selection = context.selection;
+
+	if ([selection count] == 2) {
+		var layer = [selection objectAtIndex:0],
+			layer2 = [selection objectAtIndex:1];
+			
+			var x1 = [[layer frame] midX];
+			var y1 = [[layer frame] midY];
+			var x2 = [[layer2 frame] midX];
+			var y2 = [[layer2 frame] midY];
+			
+			[[layer frame] addX:x2-x1];
+			[[layer frame] addY:y2-y1];
+			[[layer2 frame] addX:x1-x2];
+			[[layer2 frame] addY:y1-y2];			
+	}
+}
+
