@@ -3,7 +3,7 @@
   "description": "Sketch App plugin to swap positions of two elements",
   "author": "interacthings",
   "authorEmail" : "hello@interacthings.com",
-  "homepage": "http://github.com/interacthings/swap-elements-sketch-plugin",
+  "homepage": "http://github.com/interacthings/swap-elements",
   "version": 1.0,
   "identifier": "com.interacthings.sketch.swap-elements",
   "commands": [
