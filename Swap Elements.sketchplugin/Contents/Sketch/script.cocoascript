@@ -2,18 +2,18 @@ var swapElementsTopLeft = function(context) {
 	var selection = context.selection;
 
 	if ([selection count] == 2) {
-		var layer = [selection objectAtIndex:0],
-			layer2 = [selection objectAtIndex:1];
-			
-			var x1 = [[layer frame] x];
-			var y1 = [[layer frame] y];
-			var x2 = [[layer2 frame] x];
-			var y2 = [[layer2 frame] y];
-			
-			[[layer frame] addX:x2-x1];
-			[[layer frame] addY:y2-y1];
-			[[layer2 frame] addX:x1-x2];
-			[[layer2 frame] addY:y1-y2];			
+		var layerFrame1 = [[selection objectAtIndex: 0] frame];
+		var layerFrame2 = [[selection objectAtIndex: 1] frame];
+
+		var x1 = [layerFrame1 x];
+		var y1 = [layerFrame1 y];
+		var x2 = [layerFrame2 x];
+		var y2 = [layerFrame2 y];
+
+		[layerFrame1 setX: x2];
+		[layerFrame1 setY: y2];
+		[layerFrame2 setX: x1];
+		[layerFrame2 setY: y1];
 	}
 
 }
@@ -22,18 +22,17 @@ var swapElementsMidPoint = function(context) {
 	var selection = context.selection;
 
 	if ([selection count] == 2) {
-		var layer = [selection objectAtIndex:0],
-			layer2 = [selection objectAtIndex:1];
-			
-			var x1 = [[layer frame] midX];
-			var y1 = [[layer frame] midY];
-			var x2 = [[layer2 frame] midX];
-			var y2 = [[layer2 frame] midY];
-			
-			[[layer frame] addX:x2-x1];
-			[[layer frame] addY:y2-y1];
-			[[layer2 frame] addX:x1-x2];
-			[[layer2 frame] addY:y1-y2];			
+		var layerFrame1 = [[selection objectAtIndex: 0] frame];
+		var layerFrame2 = [[selection objectAtIndex: 1] frame];
+
+		var midX1 = [layerFrame1 midX] - ([layerFrame2 width] / 2);
+		var midY1 = [layerFrame1 midY] - ([layerFrame2 height] / 2);
+		var midX2 = [layerFrame2 midX] - ([layerFrame1 width] / 2);
+		var midY2 = [layerFrame2 midY] - ([layerFrame1 height] / 2);
+
+		[layerFrame1 setX: midX2];
+		[layerFrame1 setY: midY2];
+		[layerFrame2 setX: midX1];
+		[layerFrame2 setY: midY1];
 	}
 }
-
